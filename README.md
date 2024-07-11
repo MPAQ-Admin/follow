@@ -13,4 +13,5 @@ It uses a MySQL database in the shell script to colloect data and returns a list
 <I><B>Anyone wants to help, are welcome.</B></I>
 
 A preview of the admin account, found at Beamship.MPAQ.org
-![Admin Account](https://github.com/MPAQ-Admin/follow/assets/174912521/4c04598c-d87e-4836-9171-ce86a1940201)
+![Admin Account](https://github.com/user-attachments/assets/4427963b-122a-4241-bdd1-a5645e66bd99)
+

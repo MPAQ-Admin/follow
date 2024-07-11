@@ -81,7 +81,7 @@ while ($row = $res->fetch_assoc()){
 		}
 	}
 }
-echo "<BR><B>Who am I following?</B> ".$following_count."<BR>";
+echo "<BR><BR><B>Who am I following?</B> ".$following_count."<BR>";
 $sql="SELECT * FROM `".$user_id."_following` ORDER BY `name` ASC;";
 $res= $con->query($sql);
 while ($row = $res->fetch_assoc()){

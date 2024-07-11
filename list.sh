@@ -7,7 +7,7 @@ else
 	instance=$2
 fi
 userid="$(curl --silent "${instance}api/v1/accounts/lookup?acct=${username}" | jq -r .id)"
-my="mysql -h localhost -umastodon -pEndlessJourney"
+my="mysql -h host -uuser -ppassword"
 echo "DROP TABLE IF EXISTS ${userid}_following;
 CREATE TABLE ${userid}_following (
   id_code int(25) DEFAULT NULL,

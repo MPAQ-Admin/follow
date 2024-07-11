@@ -28,15 +28,7 @@ if (!isset($_POST['D'])){
 		</form>
 		</CENTER>
 ";
-exit;
-// https://pixelfed.social/@justbob	Fail
-// https://kolektiva.social/@mahaska	Fail
-// https://pagan.plus/@occupyjourney	Good
-// https://beamship.mpaq.org/@sr_rss	Good
-// https://beamship.mpaq.org/@ojrock	Good
-// https://beamship.mpaq.org/@admin	Good
-//	https://mastodon.social/@gwaldby		BIG LIST!!! (3676/6466)
-
+	exit;
 }else{
 	$full=$_POST['D'];
 	$string=explode("@",$full);
@@ -55,7 +47,7 @@ exit;
 	}
 }
 if (!isset($user_id)){echo "Unknown System Error";exit;}
-$con = mysqli_connect($host_server,"mastodon","EndlessJourney","mastodon");
+$con = mysqli_connect($host,"user","password","database");
 $con->query("DROP TABLE IF EXISTS ".$user_id."_following;");
 $con->query("DROP TABLE IF EXISTS ".$user_id."_followers;");
 $following=$instance."api/v1/accounts/$user_id/following";
@@ -112,8 +104,5 @@ while ($row = $res->fetch_assoc()){
 		}
 	}
 }
-// RAILS_ENV=production bin/tootctl accounts modify admin --reset-password
-// admin	e47ec0de6f1e44944c3d8f2e435ae943
-// ./writefreely user reset-pass supadmin
 $con->close();
 ?>

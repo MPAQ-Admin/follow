@@ -12,7 +12,7 @@ if (!isset($_POST['D'])){
 	echo "<CENTER>Welcome to &#34;The Follow Back&#34; List<BR>
 		When you enter your full address below, we will try to get all public information about who you follow and those who follow you.<BR>
 		For this to allow you to follow back, you must be logged into your account in a web browser.<BR>
-		The color codes: <FONT COLOR='green'>Green: Mutual</FONT>, <FONT COLOR='red'>Red: Not Mutual</FONT>, <FONT COLOR='black'>Black: Local</FONT><BR>	
+		The color codes: <FONT COLOR='green'>Green: Mutual</FONT>, <FONT COLOR='red'>Red: Not Mutual</FONT>, <FONT COLOR='black'>Black: Local</FONT><BR><BR>
 		<form action='/follow/".$D."' method='post'>
 			<input
 				type='url'

@@ -60,11 +60,11 @@ $output=shell_exec('/var/www/html/follow/list.sh '.$username.' '.$instance.' 2>&
 if (isset($output)){echo $output."<BR><BR>";}
 //include_once(FUNC.'/fun_comm_check.php');
 echo "<B>Who is following me?</B> ".$followers_count."<BR>";
-$sql="SELECT * FROM `".$user_id."_following` ORDER BY `name` ASC;";
+$sql="SELECT * FROM `".$user_id."_followers` ORDER BY `name` ASC;";
 $res= $con->query($sql);
 while ($row = $res->fetch_assoc()){
-	$remote_user=$row['name'];
-	$s="SELECT * FROM `".$user_id."_followers` WHERE `name` LIKE '".$remote_user."';"; 
+	$remote_user=$row['name'];$f0_count++;
+	$s="SELECT * FROM `".$user_id."_following` WHERE `name` LIKE '".$remote_user."';"; 
 	$r=$con->query($s);
 	$t = $r->fetch_assoc();
 	if (isset($row['name'])){
@@ -105,4 +105,9 @@ while ($row = $res->fetch_assoc()){
 	}
 }
 $con->close();
+if ($f0_count<>$following_count){echo "<BR><B>f0_count & following_count are not adding up, correctly ".$f0_count." <> ".$following_count."</B>";}
+if ($f1_count<>$following_count){echo "<BR><BR><B>f1_count & following_count are not adding up, correctly ".$f1_count." <> ".$following_count."</B>";}
+if ($f0_count<>$f1_count){echo "<BR><BR><B>f0_count & f1_count are not adding up, correctly ".$f0_count." <> ".$f1_count."</B>";}
+if ($followers_count>$following_count){echo "<BR><BR><B>Missing following ".$followers_count." < ".$following_count."</B>";}
+if ($followers_count<$following_count){echo "<BR><BR><B>Missing followers ".$followers_count." > ".$following_count."</B>";}
 ?>

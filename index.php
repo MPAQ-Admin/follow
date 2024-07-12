@@ -4,9 +4,8 @@
 	</HEAD>
 	<BODY>
 <?PHP
-date_default_timezone_set('America/Chicago');
 ini_set('display_errors',1);ini_set('display_startup_errors',1);error_reporting(E_ALL);
-include('/var/www/00_00/.config_cli.php');
+include('.config.php');
 $user_id=$D=NULL;
 if (!isset($_POST['D'])){
 	echo "<CENTER>Welcome to &#34;The Follow Back&#34; List<BR>
@@ -28,7 +27,7 @@ if (!isset($_POST['D'])){
 		</form>
 		</CENTER>
 ";
-	exit;
+exit;
 }else{
 	$full=$_POST['D'];
 	$string=explode("@",$full);
@@ -47,19 +46,19 @@ if (!isset($_POST['D'])){
 	}
 }
 if (!isset($user_id)){echo "Unknown System Error";exit;}
-$con = mysqli_connect($host,"user","password","database");
+$con=mysqli_connect($db['host'],$db['user'],$db['passw'],$db['database']);
 $con->query("DROP TABLE IF EXISTS ".$user_id."_following;");
 $con->query("DROP TABLE IF EXISTS ".$user_id."_followers;");
 $following=$instance."api/v1/accounts/$user_id/following";
 $followers=$instance."api/v1/accounts/$user_id/followers";
+$f0_count=$f1_count=0;
 echo "Looking for ".$full." <A HREF='".$userid."' TARGET='_blank'>".$user_id."</A> 
 	<A HREF='".$following."' TARGET='_blank'>following</A> 
 	<A HREF='".$followers."' TARGET='_blank'>followers</A><BR>
 <FONT COLOR='green'>Green: Mutual</FONT>, <FONT COLOR='red'>Red: Not Mutual</FONT>, <FONT COLOR='black'>Black: Local</FONT><BR>";
-$output=shell_exec('/var/www/html/follow/list.sh '.$username.' '.$instance.' 2>&1');
+$output=shell_exec($install_path.'list.sh '.$username.' '.$instance.' 2>&1');
 if (isset($output)){echo $output."<BR><BR>";}
-//include_once(FUNC.'/fun_comm_check.php');
-echo "<B>Who is following me?</B> ".$followers_count."<BR>";
+echo "<B>followers?</B> ".$followers_count."<BR>";
 $sql="SELECT * FROM `".$user_id."_followers` ORDER BY `name` ASC;";
 $res= $con->query($sql);
 while ($row = $res->fetch_assoc()){
@@ -81,11 +80,11 @@ while ($row = $res->fetch_assoc()){
 		}
 	}
 }
-echo "<BR><BR><B>Who am I following?</B> ".$following_count."<BR>";
+echo "<BR><BR><B>following?</B> ".$following_count."<BR>";
 $sql="SELECT * FROM `".$user_id."_following` ORDER BY `name` ASC;";
 $res= $con->query($sql);
 while ($row = $res->fetch_assoc()){
-	$remote_user=$row['name'];
+	$remote_user=$row['name'];$f1_count++;
 	$s="SELECT * FROM `".$user_id."_followers` WHERE `name` LIKE '".$remote_user."';"; 
 	$r=$con->query($s);
 	$t = $r->fetch_assoc();

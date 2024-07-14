@@ -1,4 +1,9 @@
 #!/bin/bash
+
+###########################################################################################
+# This not my work origanly and I will add the origal autors website and info as soon as I find it again
+###########################################################################################
+
 if [ "$#" -ne 2 ]; then
 	echo "Usage: $0 [username] [instance]"
 	exit 1

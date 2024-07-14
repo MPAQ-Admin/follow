@@ -1,7 +1,10 @@
 #!/bin/bash
 
 ###########################################################################################
-# This not my work origanly and I will add the origal autors website and info as soon as I find it again
+# This not my work origanly. All credit for this script belongs to:
+# https://fabulous.systems/posts/2023/06/fetch-own-followers-from-mastodon-api/
+# felsqualle@manitu.social
+# https://manitu.social/@felsqualle
 ###########################################################################################
 
 if [ "$#" -ne 2 ]; then

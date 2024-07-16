@@ -13,5 +13,7 @@ It uses a MySQL database in the shell script to colloect data and returns a list
 <BR><BR>
 <I><B>Anyone wants to help, are welcome.</B></I>
 <BR><BR>
-A preview of the admin account, found at Beamship.MPAQ.org
-![Admin Account](https://github.com/user-attachments/assets/ab430d25-346e-4581-a620-50d52bc9017f)
+The first screeen you see will be:![Screenshot](https://github.com/user-attachments/assets/ba76c6bd-d30a-495a-aa5e-4301c346b9ba)
+<BR>
+A preview of the admin account, found at beamship.mpaq.org
+![Screenshot from 2024-07-16 09-26-05](https://github.com/user-attachments/assets/284264b8-30e7-4ae3-9d70-3e8da0b6da95)

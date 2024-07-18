@@ -17,3 +17,6 @@ The first screeen you see will be:![Screenshot](https://github.com/user-attachme
 <BR>
 A preview of the admin account, found at beamship.mpaq.org
 ![Screenshot from 2024-07-16 09-26-05](https://github.com/user-attachments/assets/284264b8-30e7-4ae3-9d70-3e8da0b6da95)
+
+
+Any updates will be listed in https://github.com/MPAQ-Admin/follow/blob/main/UPDATE.md
